@@ -17,14 +17,26 @@ A leakage-safe, reproducible discovery-to-panel workflow for the supplied synthe
 
 The raw data is **not** committed. Place the five CSVs at `./candidate_assignment_data/candidate_data/` (same layout as the assignment zip) before running.
 
-## Run
+## Setup
+
+Install [pixi](https://pixi.sh) once (it manages the pinned conda-forge environment):
+
+```
+# Linux / macOS
+curl -fsSL https://pixi.sh/install.sh | sh
+
+# Windows PowerShell
+iwr -useb https://pixi.sh/install.ps1 | iex
+```
+
+Then from the repo root:
 
 ```
 pixi run analysis   # end-to-end pipeline → results/
 pixi run test       # four guardrail tests
 ```
 
-Both tasks resolve the pinned conda-forge environment on first use.
+The first run resolves and caches the environment (~1–2 min); subsequent runs are instant.
 
 ## Design choices (short)
 
