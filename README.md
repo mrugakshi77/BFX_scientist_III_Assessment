@@ -59,6 +59,3 @@ Everything in `results/` is regenerated deterministically by `pixi run analysis`
 
 QC tables, per-modality development CV outputs, and panel-selection intermediates are generated on each run but intentionally not committed.
 
-## Notes for interpretation
-
-The panel is a **discovery candidate, not a clinically validated signature**. Before assay lock-down the selected methylation regions require sequence-uniqueness checks, primer/probe design, local-CpG review, and wet-lab precision/LOD validation. Site and plate structure should be probed further; the pipeline includes per-fold plate centering but a leave-one-site-out sensitivity analysis is a natural next step.
