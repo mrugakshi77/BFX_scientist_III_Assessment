@@ -1,0 +1,28 @@
+data_dir: candidate_assignment_data/candidate_data
+results_dir: results
+random_seed: 20261012
+outer_folds: 5
+inner_folds: 4
+specificity_target: 0.95
+methylation_missingness_threshold: 0.20
+# One deterministic fold is reserved before panel selection.
+final_panel_holdout_folds: 5
+
+# These are feature-selection budgets for discovery models, not the final panel.
+model_specs:
+  methylation:
+    feature_prefixes: ["CpG_"]
+    k_candidates: [10, 25, 50]
+  fragmentomics:
+    feature_prefixes: ["short_frag_fraction", "long_frag_fraction", "mean_frag_length", "mode_frag_length", "nucleosome_periodicity", "mito_frag_fraction", "end_motif_", "total_reads_millions"]
+    k_candidates: ["all"]
+  protein:
+    feature_prefixes: ["PROTEIN"]
+    k_candidates: [5, 10, 20]
+  methylation_fragmentomics:
+    feature_prefixes: ["CpG_", "short_frag_fraction", "long_frag_fraction", "mean_frag_length", "mode_frag_length", "nucleosome_periodicity", "mito_frag_fraction", "end_motif_", "total_reads_millions"]
+    k_candidates: [25, 50, 100]
+  integrated:
+    feature_prefixes: ["ALL"]
+    k_candidates: [50, 100, 200]
+
