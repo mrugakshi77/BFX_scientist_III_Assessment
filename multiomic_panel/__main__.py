@@ -1,14 +1,11 @@
-"""Command-line entry point for the multiomic panel workflow."""
+"""CLI entry: `python -m multiomic_panel --config config.yaml`."""
 
 from __future__ import annotations
 
 import argparse
-import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-
-from multiomic_panel.workflow import run
+from .workflow import run
 
 
 def main() -> None:

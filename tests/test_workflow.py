@@ -1,13 +1,8 @@
 """Regression tests for leakage and feature-selection guardrails."""
 
-from pathlib import Path
-import sys
-
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import StratifiedGroupKFold
-
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from multiomic_panel.workflow import MissingnessFilter, SafeSelectKBest, _pipeline
 

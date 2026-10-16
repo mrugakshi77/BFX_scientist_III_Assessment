@@ -71,10 +71,10 @@ Caveat: with 43 patients, the 100 % specificity point has wide uncertainty. The 
 
 ## AI tools used
 
-I'll be straight about this: a lot of this problem space was new to me, and I used Claude (Anthropic's Claude Code CLI) heavily — as a tutor, a sounding board, and a coding assistant. Specifically:
+I'll be honest about this: a lot of this problem space was new to me, and I used Claude (Anthropic's Claude Code CLI) heavily, as a tutor and a coding assistant. Specifically:
 
 - **Learning the concepts.** I asked Claude to explain patient-grouped cross-validation, why leakage from preprocessing fitted outside the fold is a real problem on this kind of data, what plate/batch effects look like in protein assays, and why ddPCR cares about GC content and repeat overlap. The understanding is mine now; it wasn't at the start.
-- **Weighing approaches.** For most design calls — early-fusion vs late-fusion, L1-logistic vs tree models, how strict to make the ddPCR feasibility filter, where to put the holdout boundary, whether to correct plate effects by median centering vs ComBat — I asked Claude to lay out the trade-offs and then I picked. The choices in this pipeline are the ones I'd defend; several of them I would not have known to make without that back-and-forth.
+- **Weighing approaches.** For most design calls: early-fusion vs late-fusion, L1-logistic vs tree models, how strict to make the ddPCR feasibility filter, where to put the holdout boundary, whether to correct plate effects by median centering vs ComBat — I asked Claude to lay out the trade-offs and then I picked. The choices in this pipeline are the ones I'd defend; several of them I would not have known to make without that back-and-forth.
 - **Code review and implementation.** Claude did a line-by-line review that flagged the uncorrected plate confound as the biggest unaddressed issue, helped me implement training-fold-safe per-plate median centering, and helped trim unused QC outputs, dead return values, and docstring typos.
 - **Drafting.** This write-up was drafted with Claude and edited by me.
 

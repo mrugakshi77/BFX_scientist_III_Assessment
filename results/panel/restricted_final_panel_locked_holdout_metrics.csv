@@ -1,2 +1,2 @@
 n_development,n_holdout,n_development_patients,n_holdout_patients,roc_auc,average_precision,threshold_selected_on_development_oof,holdout_sensitivity_at_locked_threshold,holdout_specificity_at_locked_threshold,best_parameters
-206,49,177,43,0.9578947368421052,0.9739206446596683,0.747080973013712,0.7,1.0,"{""classifier__C"": 0.2}"
+206,49,177,43,0.9578947368421052,0.9739206446596683,0.7471538762135431,0.7,1.0,"{""classifier__C"": 0.2}"

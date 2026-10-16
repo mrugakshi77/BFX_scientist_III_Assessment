@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 from dataclasses import dataclass
 from pathlib import Path
@@ -464,11 +463,6 @@ def locked_panel_holdout_evaluation(
     }]), output_dir / "restricted_final_panel_locked_holdout_metrics.csv")
 
 
-def write_manifest(data_dir: Path, config: dict[str, Any], output_path: Path) -> None:
-    hashes = {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(data_dir.glob("*.csv"))}
-    output_path.write_text(json.dumps({"config": config, "input_sha256": hashes}, indent=2), encoding="utf-8")
-
-
 def run(config_path: Path) -> None:
     config = load_config(config_path)
     root = config_path.parent.resolve()
@@ -532,5 +526,4 @@ def run(config_path: Path) -> None:
         holdout_metadata.loc[holdout_protein_available].reset_index(drop=True), config, results_dir / "panel",
         protein_columns=protein_cols,
     )
-    write_manifest(data_dir, config, results_dir / "run_manifest.json")
 
